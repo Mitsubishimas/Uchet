@@ -1,0 +1,10 @@
+{
+  "name": "uchet-mastermitsu",
+  "version": "1.0.0",
+  "entry": "server.js",
+  "health": true,
+  "access": "private",
+  "storage": {
+    "kind": "sqlite"
+  }
+}

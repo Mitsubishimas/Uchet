@@ -1,0 +1,203 @@
+/* Частное оформления приложения поверх общего слоя Искры.
+   Значения — из токенов слоя, поэтому обе темы работают сами. */
+
+.logotype {
+  display: block;
+  width: 128px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+.order-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.order-head__title {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+/* Список заказов: строка показывает покупателя, машину, дату и сумму. */
+.order-row {
+  display: grid;
+  gap: 2px;
+}
+
+.order-row__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.order-row__name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.order-row__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-soft);
+}
+
+.order-row__meta .num {
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.list-total {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-soft);
+}
+
+.list-select .empty {
+  padding: 14px 8px;
+}
+
+/* Плитки в карточке заказа: строковое значение не должно наследовать
+   увеличенный кегль числа. */
+.kpi__value--text {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.notes {
+  white-space: pre-wrap;
+}
+
+.field--inline {
+  width: auto;
+  min-width: 160px;
+}
+
+.field--inline select {
+  width: auto;
+  min-width: 160px;
+}
+
+.checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.check input {
+  width: auto;
+  margin: 0;
+}
+
+/* Ссылка-кнопка: действие без отправки формы. */
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-weight: 500;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-link:hover {
+  background: var(--hover);
+  text-decoration: none;
+}
+
+.btn-link--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.btn-link--primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--accent-contrast);
+}
+
+.breakdowns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+/* Таблица «подпись — значение» в карточке заказа: слой рассчитан на числа
+   справа, а здесь значения — текст. Подпись остаётся слева колонкой,
+   значение читается по левому краю и переносится. */
+.pairs {
+  max-width: none;
+}
+
+.pairs th {
+  position: static;
+  width: 34%;
+  min-width: 132px;
+  max-width: 220px;
+  padding: 8px 12px 8px 0;
+  background: transparent;
+  border-bottom: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-soft);
+  white-space: normal;
+  vertical-align: top;
+}
+
+.pairs td {
+  padding: 8px 0;
+  overflow-wrap: anywhere;
+}
+
+.pairs th:last-child,
+.pairs td:last-child {
+  text-align: left;
+}
+
+.pairs tbody tr:hover td {
+  background: transparent;
+}
+
+/* На узком экране подпись над значением: две колонки в 320px не читаются. */
+@media (max-width: 560px) {
+  .pairs th,
+  .pairs td {
+    display: block;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    border: 0;
+  }
+
+  .pairs th {
+    padding-top: 8px;
+    font-size: 12px;
+  }
+
+  .pairs td {
+    padding-bottom: 4px;
+  }
+}
