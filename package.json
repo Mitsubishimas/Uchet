@@ -7,8 +7,7 @@
   "scripts": {
     "start": "bash start.sh",
     "dev": "bash start.sh",
-    "typecheck": "tsc --noEmit",
-    "pack": "echo 'Для упаковки используйте: iskra-app pack  (на машине с SDK Искры)'"
+    "typecheck": "tsc --noEmit"
   },
   "engines": {
     "node": ">=22"
@@ -20,8 +19,5 @@
   "devDependencies": {
     "@types/node": "^22.0.0",
     "typescript": "^5.6.0"
-  },
-  "optionalDependencies": {
-    "@iskra/apps": "*"
   }
 }
